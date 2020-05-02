@@ -1,0 +1,28 @@
+config.py
+ratings.csv
+movies_metadata.csv
+wikipedia.movies.json
+
+# Exclude document types that don't need versioning,
+# leaving only the types of interest
+*~
+*#
+*.csv
+*.doc
+*.docx
+*.gif
+*.htm
+*.html
+*.ini
+*.jpg
+*.odt
+*.pdf
+*.png
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.xlsm
+*.xml
+*.rar
+*.zip
