@@ -18,7 +18,7 @@ def movie_data_merge(a, b, c):
     except NameError:
         print('NameError - Check file name.')
 
-    #movie_data_merge(wikipedia.movies, movies_metadata, ratings)
+    movie_data_merge(wikipedia.movies, movies_metadata, ratings)
     
     wiki_movies_df = pd.DataFrame(wiki_movies_raw)
     wiki_movies = [movie for movie in wiki_movies_raw
@@ -121,8 +121,6 @@ def movie_data_merge(a, b, c):
         print('box_office error')
         traceback.print_exc()
         pass
-    #finally:
-        #wiki_movies_df.drop('Box office', axis=1, inplace=True)
 
     budget = wiki_movies_df['Budget'].dropna()
     budget = budget.map(lambda x: ' '.join(x) if type(x) == list else x)
@@ -135,8 +133,7 @@ def movie_data_merge(a, b, c):
         print('budget error')
         traceback.print_exc()
         pass
-    #finally:
-        #wiki_movies_df.drop('Budget', axis=1, inplace=True)
+    
     ### Release date verification
     release_date = wiki_movies_df['Release date'].dropna().apply(lambda x: ' '.join(x) if type(x) == list else x)
     date_form_one = r'(?:January|February|March|April|May|June|July|August|September|October|November|December)\s[123]\d,\s\d{4}'
@@ -161,9 +158,7 @@ def movie_data_merge(a, b, c):
         print('running_time error')
         traceback.print_exc()
         pass
-    #finally:
-        #wiki_movies_df.drop('Running time', axis=1, inplace=True)
-        
+            
     kaggle_metadata = kaggle_metadata[kaggle_metadata['adult'] == 'False'].drop('adult',axis='columns')
     kaggle_metadata['video'] = kaggle_metadata['video'] == 'True'
     kaggle_metadata['budget'] = kaggle_metadata['budget'].astype(int)
